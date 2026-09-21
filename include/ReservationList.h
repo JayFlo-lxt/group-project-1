@@ -17,14 +17,14 @@ struct ReservationNode
 class ReservationList
 {
 public:
-    Reservation();
+    ReservationList();
     ~ReservationList();
 
     void insertReservation(const Reservation& res);
     bool removeReservation(int reservationID);
     ReservationNode* traverse(int reservationID) const;
     void displayReservations() const;
-    bool isEmpty() const 
+    bool isEmpty() const;
 
 private:
     ReservationNode* head;
