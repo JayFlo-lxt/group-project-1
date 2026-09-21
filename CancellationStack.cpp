@@ -1,4 +1,3 @@
-```cpp
 #include "CancellationStack.h"
 #include <iostream>
 
@@ -57,6 +56,11 @@ bool CancellationStack::isEmpty()
 
 void CancellationStack::displayCancellationHistory()
 {
+    if (top == nullptr)
+    {
+    cout << "Cancellation history is empty" << endl;
+    return;
+    }
     Node* current = top;
 
     while (current != nullptr)
@@ -81,4 +85,3 @@ void CancellationStack::displayCancellationHistory()
         current = current->next;
     }
 }
-

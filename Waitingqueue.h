@@ -1,3 +1,4 @@
+#pragma once
 #include "Reservation.h"
 
 class WaitingQueue
@@ -7,6 +8,11 @@ private:
     {
         Reservation reservation;
         Node* next;
+
+        Node(const Reservation& res)
+        : reservation(res), next(nullptr)
+        {
+        }
     };
 
     Node* front;
@@ -17,7 +23,9 @@ public:
 
     void enqueue(Reservation reservation);
     Reservation dequeue();
+
+    Reservation dequeueForResource(const std::string& resourceID);
     Reservation getFront();
-    int isEmpty();
+    bool isEmpty();
     void displayWaitingList();
 };

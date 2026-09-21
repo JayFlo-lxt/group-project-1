@@ -94,3 +94,43 @@ void WaitingQueue::displayWaitingList()
         current = current->next;
     }
 }
+Reservation WaitingQueue::dequeueForResource(
+    const std::string& resourceID)
+{
+    Node* current = front;
+    Node* previous = nullptr;
+
+    while (current != nullptr)
+    {
+        if (current->reservation.getResourceID() == resourceID)
+        {
+            Reservation savedReservation = current->reservation;
+
+            if (current == front)
+            {
+                front = current->next;
+            }
+            else
+            {
+                previous->next = current->next;
+            }
+
+            if (current == rear)
+            {
+                rear = previous;
+            }
+
+            delete current;
+
+            if (front == nullptr)
+            {
+                rear = nullptr;
+            }
+
+            return savedReservation;
+        }
+        previous = current;
+        current = current->next;
+    }
+    return Reservation(-1, -1, "", "", "");
+}

@@ -1,3 +1,4 @@
+#pragma once
 #include "Reservation.h"
 
 class CancellationStack
@@ -7,6 +8,11 @@ private:
     {
         Reservation reservation;
         Node* next;
+
+        Node(const Reservation& res)
+        : reservation(res), next(nullptr)
+    {
+    }
     };
 
     Node* top;
@@ -17,6 +23,6 @@ public:
     void push(Reservation reservation);
     Reservation pop();
     Reservation getTop();
-    int isEmpty();
+    bool isEmpty();
     void displayCancellationHistory();
 };
