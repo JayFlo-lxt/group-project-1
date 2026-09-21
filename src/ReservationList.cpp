@@ -1,6 +1,5 @@
 #include "Reservation.h"
 #include <iostream>
-#include "Reservation.h"
 #include "ReservationList.h"
 
 
@@ -59,7 +58,22 @@ void ReservationList::displayReservations() const {
     }
     ReservationNode* current = head;
     while (current != nullptr) {
-        current->data.display();
+        std::cout << "Reservation ID: "
+          << current->data.getReservationID() << std::endl;
+
+        std::cout << "Student ID: "
+          << current->data.getStudentID() << std::endl;
+
+        std::cout << "Student Name: "
+          << current->data.getStudentName() << std::endl;
+
+        std::cout << "Resource ID: "
+          << current->data.getResourceID() << std::endl;
+
+        std::cout << "Reservation Date: "
+          << current->data.getReservationDate() << std::endl;
+
+        std::cout << std::endl;
         current = current->next;
     }
 }
@@ -67,3 +81,4 @@ void ReservationList::displayReservations() const {
 bool ReservationList::isEmpty() const {
     return head == nullptr;
 }
+
