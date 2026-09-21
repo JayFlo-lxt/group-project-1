@@ -1,32 +1,8 @@
 #include "Reservation.h"
 #include <iostream>
+#include "Reservation.h"
+#include "ReservationList.h"
 
-// ---------------- Reservation ----------------
-
-Reservation::Reservation()
-    : reservationID(-1), studentID(-1), studentName(""), resourceID(""), date("") {}
-
-Reservation::Reservation(int reservationID, int studentID,
-                          const std::string& studentName, const std::string& resourceID,
-                          const std::string& date)
-    : reservationID(reservationID), studentID(studentID), studentName(studentName),
-      resourceID(resourceID), date(date) {}
-
-int Reservation::getReservationID() const { return reservationID; }
-int Reservation::getStudentID() const { return studentID; }
-std::string Reservation::getStudentName() const { return studentName; }
-std::string Reservation::getResourceID() const { return resourceID; }
-std::string Reservation::getReservationDate() const { return date; }
-
-void Reservation::display() const {
-    std::cout << "Reservation " << reservationID
-              << " | Student: " << studentName << " (" << studentID << ")"
-              << " | Resource: " << resourceID
-              << " | Date: " << date
-              << std::endl;
-}
-
-// ---------------- ReservationList (linked list) ----------------
 
 ReservationList::ReservationList() : head(nullptr) {}
 
