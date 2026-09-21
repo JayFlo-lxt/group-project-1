@@ -32,23 +32,23 @@ std::vector<Resource> loadResourcesFromFile(const std::string& filename) {
  
     if (!file.is_open()) {
         std::cerr << "Error: could not open resource file " << filename << std::endl;
-        return resources; // empty vector  caller should check size() or handle the error
+        return resources; 
     }
  
     std::string line;
     while (std::getline(file, line)) {
-        if (line.empty()) continue; // skip blank lines
+        if (line.empty()) continue; 
  
         std::stringstream ss(line);
         std::string id, name, type, availStr;
  
-        // Expected format: ResourceID,Name,Type,AvailabilityStatus
+        
         std::getline(ss, id, ',');
         std::getline(ss, name, ',');
         std::getline(ss, type, ',');
         std::getline(ss, availStr, ',');
  
-        bool available = (availStr == "1"); // "1" = available, "0" = not
+        bool available = (availStr == "1"); 
         resources.push_back(Resource(id, name, type, available));
     }
  
