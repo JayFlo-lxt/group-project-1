@@ -24,6 +24,7 @@ public:
     bool removeReservation(int reservationID);
     ReservationNode* traverse(int reservationID) const;
     void displayReservations() const;
+    void searchByStudent(int studentID) const;
     bool isEmpty() const;
 
 private:

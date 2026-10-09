@@ -82,3 +82,27 @@ bool ReservationList::isEmpty() const {
     return head == nullptr;
 }
 
+void ReservationList::searchByStudent(int studentID) const
+{
+    ReservationNode* current = head;
+    int found = 0;
+
+    while (current != nullptr)
+    {
+        if (current->data.getStudentID() == studentID )
+    {
+        std::cout << "Reservation ID:  " << current->data.getReservationID()
+             << " | Student: " << current->data.getStudentName()
+             << " | Resource: " << current->data.getResourceID()
+             << " | Date: " << current->data.getReservationDate() << std::endl;
+        found = found + 1;
+    }
+    current = current-> next;
+}
+
+if (found == 0)
+{
+ std::cout << "No reservations found for student " << studentID << "." << std::endl;
+}
+
+}
