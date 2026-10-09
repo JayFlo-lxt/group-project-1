@@ -25,6 +25,7 @@ public:
     ReservationNode* traverse(int reservationID) const;
     void displayReservations() const;
     void searchByStudent(int studentID) const;
+    int countForResource(const std::string& resourceID) const;
     bool isEmpty() const;
 
 private:
