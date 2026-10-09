@@ -106,3 +106,17 @@ if (found == 0)
 }
 
 }
+
+int ReservationList::countForResource(const std::string& resourceID) const {
+    ReservationNode* current = head;
+    int count = 0;
+    while (current != nullptr) 
+    {
+        if (current->data.getResourceID() == resourceID) 
+        {   
+            count = count + 1;
+        }
+        current = current->next;
+    }
+    return count;
+}
