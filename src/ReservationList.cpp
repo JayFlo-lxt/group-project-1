@@ -1,6 +1,5 @@
 #include "Reservation.h"
 #include <iostream>
-#include "Reservation.h"
 #include "ReservationList.h"
 
 
@@ -59,11 +58,51 @@ void ReservationList::displayReservations() const {
     }
     ReservationNode* current = head;
     while (current != nullptr) {
-        current->data.display();
+        std::cout << "Reservation ID: "
+          << current->data.getReservationID() << std::endl;
+
+        std::cout << "Student ID: "
+          << current->data.getStudentID() << std::endl;
+
+        std::cout << "Student Name: "
+          << current->data.getStudentName() << std::endl;
+
+        std::cout << "Resource ID: "
+          << current->data.getResourceID() << std::endl;
+
+        std::cout << "Reservation Date: "
+          << current->data.getReservationDate() << std::endl;
+
+        std::cout << std::endl;
         current = current->next;
     }
 }
 
 bool ReservationList::isEmpty() const {
     return head == nullptr;
+}
+
+void ReservationList::searchByStudent(int studentID) const
+{
+    ReservationNode* current = head;
+    int found = 0;
+
+    while (current != nullptr)
+    {
+        if (current->data.getStudentID() == studentID )
+    {
+        std::cout << "Reservation ID:  " << current->data.getReservationID()
+             << " | Student: " << current->data.getStudentName()
+             << " | Resource: " << current->data.getResourceID()
+             << " | Date: " << current->data.getReservationDate() << std::endl;
+        found = found + 1;
+    }
+    current = current-> next;
+}
+
+if (found == 0)
+{
+ std::cout << "No reservations found for student " << studentID << "." << std::endl;
+}
+
 }

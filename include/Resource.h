@@ -9,8 +9,8 @@ public:
     Resource();
     Resource(const std::string& id, const std:: string& name,
               const std::string& type, bool available);
-    
-    
+
+
     std:: string getResourceID() const;
     std:: string getName() const;
     std:: string getType() const;
@@ -37,3 +37,4 @@ bool displayResourceAvailability(const std::vector<Resource>& resources,
                                   const std::string& resourceID);
 
 #endif 
+

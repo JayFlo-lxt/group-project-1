@@ -1,0 +1,4 @@
+R101,Study Room A,Study Room,1
+R102,Laptop 1,Laptop,1
+R103,Projector 1,Projector,1
+R104,Study Room B,Study Room,1
