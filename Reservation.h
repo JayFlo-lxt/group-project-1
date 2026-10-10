@@ -1,40 +1,26 @@
-#include "Reservation.h"
+#ifndef RESERVATION_H
+#define RESERVATION_H
 
-Reservation::Reservation(
-    int resID,
-    int stuID,
-    std::string stuName,
-    std::string resResourceID,
-    std::string resDate)
-    : reservationID(resID),
-      studentID(stuID),
-      studentName(stuName),
-      resourceID(resResourceID),
-      reservationDate(resDate)
-{
-}
+#include <string>
 
-int Reservation::getReservationID()
+class Reservation
 {
-    return reservationID;
-}
+private:
+    int reservationID;
+    int studentID;
+    std::string studentName;
+    std::string resourceID;
+    std::string reservationDate;
 
-int Reservation::getStudentID()
-{
-    return studentID;
-}
+public:
+    Reservation(int resID, int stuID, std::string stuName,
+                std::string resResourceID, std::string resDate);
 
-std::string Reservation::getStudentName()
-{
-    return studentName;
-}
+    int getReservationID() const;
+    int getStudentID() const;
+    std::string getStudentName() const;
+    std::string getResourceID() const;
+    std::string getReservationDate() const;
+};
 
-std::string Reservation::getResourceID()
-{
-    return resourceID;
-}
-
-std::string Reservation::getReservationDate()
-{
-    return reservationDate;
-}
+#endif
