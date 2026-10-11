@@ -134,3 +134,62 @@ Reservation WaitingQueue::dequeueForResource(
     }
     return Reservation(-1, -1, "", "", "");
 }
+void WaitingQueue::displayWaitingListStatistics()
+{
+    Node* current = front;
+    int totalWaiting = 0;
+
+    cout << "\n===== WAITING LIST STATISTICS =====" << endl;
+
+    if (front == nullptr)
+    {
+        cout << "The waiting list is empty." << endl;
+        cout << "Total Students Waiting: 0" << endl;
+        return;
+    }
+
+    while (current != nullptr)
+    {
+        string resourceID = current->reservation.getResourceID();
+        int count = 0;
+        bool alreadyCounted = false;
+
+        Node* previous = front;
+
+        while (previous != current)
+        {
+            if (previous->reservation.getResourceID() == resourceID)
+            {
+                alreadyCounted = true;
+                break;
+            }
+
+            previous = previous->next;
+        }
+
+        if (!alreadyCounted)
+        {
+            Node* temp = current;
+
+            while (temp != nullptr)
+            {
+                if (temp->reservation.getResourceID() == resourceID)
+                {
+                    count++;
+                }
+
+                temp = temp->next;
+            }
+
+            cout << "Resource ID: " << resourceID << endl;
+            cout << "Students Waiting: " << count << endl;
+            cout << "-----------------------------" << endl;
+        }
+
+        totalWaiting++;
+        current = current->next;
+    }
+
+    cout << "Total Students Waiting: " << totalWaiting << endl;
+    cout << "===================================" << endl;
+}
