@@ -193,3 +193,20 @@ void WaitingQueue::displayWaitingListStatistics()
     cout << "Total Students Waiting: " << totalWaiting << endl;
     cout << "===================================" << endl;
 }
+// Linear Search
+bool WaitingQueue::searchWaitingStudent(int studentID)
+{
+    Node* current = front;
+
+    while (current != nullptr)
+    {
+        if (current->reservation.getStudentID() == studentID)
+        {
+            return true;
+        }
+
+        current = current->next;
+    }
+
+    return false;
+}
