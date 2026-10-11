@@ -31,4 +31,5 @@ public:
 
     // Waiting-list statistics report
     void displayWaitingListStatistics();
+    bool searchWaitingStudent(int studentID);
 };
