@@ -28,4 +28,7 @@ public:
     Reservation getFront();
     bool isEmpty();
     void displayWaitingList();
+
+    // Waiting-list statistics report
+    void displayWaitingListStatistics();
 };
