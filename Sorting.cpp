@@ -1,6 +1,6 @@
 #include "Sorting.h"
 
-void sortRessourcesByName(stssssssssd::vector<Resource>& resources)
+void sortResourcesByName(std::vector<Resource>& resources)
 {
   if(resources.empty())
 {
@@ -12,15 +12,15 @@ mergeSort (resources, 0, resources.size() -1);
 void mergeSort(
   std::vector<Resource>& resources,
   int left,
-  int right,
+  int right
 )
   {
     if(left<right)
     {  
     int middle = left+ (right-left)/2;
-    mergeSort (resources, left, ,middle);
+    mergeSort (resources, left, middle);
     mergeSort (resources, middle + 1, right);
-    mergeSort (resources, left, middle, right);
+    merge (resources, left, middle, right);
     }
 }
 
@@ -73,7 +73,7 @@ while(i<leftSize)
   }
 while(j<rightSize)
   {
-    resources[k] = rightHalf[j]
+    resources[k] = rightHalf[j];
       j++;
       k++;
   }
