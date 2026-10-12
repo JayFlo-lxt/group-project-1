@@ -78,4 +78,3 @@ while(j<rightSize)
       k++;
   }
 }
-
