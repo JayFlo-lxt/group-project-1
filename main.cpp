@@ -10,6 +10,8 @@
 #include "CancellationStack.h"
 #include "ReservationManager.h"
 
+#include "Sorting.h"
+
 int main()
 {
     std::vector<Resource> resources =
@@ -22,7 +24,7 @@ int main()
 
     int choice = 0;
 
-    while (choice != 8)
+    while (choice != 11)
     {
         std::cout << "\nCampus Resource Reservation System\n";
         std::cout << "1. View Resources\n";
@@ -32,7 +34,10 @@ int main()
         std::cout << "5. View Waiting List\n";
         std::cout << "6. Undo Cancellation\n";
         std::cout << "7. View Cancellation History\n";
-        std::cout << "8. Exit\n";
+        std::cout << "8. Search Reservation\n";
+        std::cout << "9. Sort Resources by Name\n";
+        std::cout << "10. Generate Reports\n";
+        std::cout << "11. Exit\n";
 
         std::cout << "\nEnter your choice: ";
         std::cin >> choice;
@@ -167,9 +172,37 @@ int main()
 
         else if (choice == 8)
         {
-            std::cout
-                << "Exiting program..."
-                << std::endl;
+    // Noah's search will go here
+        }
+        else if (choice == 9)
+        {
+            sortResourcesByName(resources);
+
+            std::cout << "Resources sorted by name." << std::endl;
+
+            displayAllResources(resources);
+        }
+        else if (choice == 10)
+        {
+            int reportChoice;
+
+            std::cout << "\nReports\n";
+            std::cout << "1. Waiting List Statistics\n";
+            std::cout << "Enter report choice: ";
+            std::cin >> reportChoice;
+
+         if (reportChoice == 1)
+         {
+            waitingQueue.displayWaitingListStatistics();
+         }
+        else
+        {
+            std::cout << "Invalid report choice." << std::endl;
+        }
+        }
+        else if (choice == 11)
+        {
+        std::cout << "Exiting program..." << std::endl;
         }
 
         else
