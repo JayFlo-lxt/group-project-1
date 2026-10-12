@@ -12,8 +12,8 @@ int right
 
 void mergeSort(
 std::vector<Resource>& resources,
-int left;
-int right;
+int left,
+int right
 );
 
 void sortResourcesByName(
