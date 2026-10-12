@@ -85,3 +85,13 @@ void CancellationStack::displayCancellationHistory()
         current = current->next;
     }
 }
+
+CancellationStack::~CancellationStack()
+{
+    while (top != nullptr)
+    {
+        Node* temporary = top;
+        top = top->next;
+        delete temporary;
+    }
+}

@@ -10,6 +10,8 @@ class ReportGenerator
 public:
     void resourceUtilization(const std::vector<Resource>& resources,
                              const ReservationList& activeReservations) const;
+    void mostRequestedResources(const std::vector<Resource>& resources,
+                                const ReservationList& activeReservations) const;
 };
 
 #endif 

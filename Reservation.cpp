@@ -14,27 +14,27 @@ reservationDate(resDate)
 {
 }
 
-int Reservation::getReservationID()
+int Reservation::getReservationID() const
 {
 return reservationID;
 }
 
-int Reservation::getStudentID()
+int Reservation::getStudentID() const
 {
 return studentID;
 }
 
-std::string Reservation::getStudentName()
+std::string Reservation::getStudentName() const
 {
 return studentName;
 }
 
-std::string Reservation::getResourceID()
+std::string Reservation::getResourceID() const
 {
 return resourceID;
 }
 
-std::string Reservation::getReservationDate()
+std::string Reservation::getReservationDate() const
 {
 return reservationDate;
 }

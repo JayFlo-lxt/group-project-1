@@ -207,6 +207,7 @@ int main()
             std::cout << "1. Active Reservations\n";
             std::cout << "2. Resource Utilization\n";
             std::cout << "3. Waiting List Statistics\n";
+            std::cout << "4. Most Requested Resources\n";
             std::cout << "Enter report choice: ";
 
             if (!(std::cin >> reportChoice))
@@ -235,6 +236,13 @@ int main()
         else if (reportChoice == 3)
         {
             waitingQueue.displayWaitingListStatistics();
+        }
+        else if (reportChoice == 4)
+        {
+            reportGenerator.mostRequestedResources(
+                resources,
+                activeReservations
+            );
         }
         else
         {
