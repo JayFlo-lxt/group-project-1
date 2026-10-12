@@ -186,8 +186,6 @@ int main()
         {
             int reportChoice;
 
-            int reportChoice;
-
             std::cout << "\nReports\n";
             std::cout << "1. Waiting List Statistics\n";
             std::cout << "Enter report choice: ";
