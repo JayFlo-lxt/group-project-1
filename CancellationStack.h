@@ -1,3 +1,4 @@
+#pragma once
 #ifndef CANCELLATION_STACK_H
 #define CANCELLATION_STACK_H
 
