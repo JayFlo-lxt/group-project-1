@@ -19,6 +19,7 @@ private:
 
 public:
     CancellationStack();
+    ~CancellationStack();
 
     void push(Reservation reservation);
     Reservation pop();
