@@ -11,6 +11,7 @@
 #include "ReservationManager.h"
 
 #include "Sorting.h"
+#include "ReportGenerator.h"
 
 int main()
 {
@@ -21,6 +22,7 @@ int main()
     WaitingQueue waitingQueue;
     CancellationStack cancellationStack;
     ReservationManager manager;
+    ReportGenerator reportGenerator;
 
     int choice = 0;
 
@@ -34,13 +36,23 @@ int main()
         std::cout << "5. View Waiting List\n";
         std::cout << "6. Undo Cancellation\n";
         std::cout << "7. View Cancellation History\n";
-        std::cout << "8. Search Reservation\n";
+        std::cout << "8. Search Reservations by Student ID\n";
         std::cout << "9. Sort Resources by Name\n";
         std::cout << "10. Generate Reports\n";
         std::cout << "11. Exit\n";
 
         std::cout << "\nEnter your choice: ";
-        std::cin >> choice;
+        if (!(std::cin >> choice))
+        {
+            std::cout << "Invalid input. Please enter a number." << std::endl;
+
+            std::cin.clear();
+
+            std::cin.ignore(
+            std::numeric_limits<std::streamsize>::max(),'\n');
+
+            continue;
+        }
 
         if (choice == 1)
         {
@@ -172,8 +184,13 @@ int main()
 
         else if (choice == 8)
         {
-    // Noah's search will go here
-        }
+            int studentID;
+
+            std::cout << "Enter student ID to search: ";
+            std::cin >> studentID;
+
+            activeReservations.searchByStudent(studentID);
+        }   
         else if (choice == 9)
         {
             sortResourcesByName(resources);
@@ -187,14 +204,38 @@ int main()
             int reportChoice;
 
             std::cout << "\nReports\n";
-            std::cout << "1. Waiting List Statistics\n";
+            std::cout << "1. Active Reservations\n";
+            std::cout << "2. Resource Utilization\n";
+            std::cout << "3. Waiting List Statistics\n";
             std::cout << "Enter report choice: ";
-            std::cin >> reportChoice;
 
-         if (reportChoice == 1)
-         {
+            if (!(std::cin >> reportChoice))
+        {
+            std::cout << "Invalid input. Please enter a number." << std::endl;
+
+            std::cin.clear();
+
+            std::cin.ignore(
+                std::numeric_limits<std::streamsize>::max(),'\n');
+
+            continue;
+        }
+
+        if (reportChoice == 1)
+        {
+            activeReservations.displayReservations();
+        }
+        else if (reportChoice == 2)
+        {
+            reportGenerator.resourceUtilization(
+            resources,
+            activeReservations
+        );
+        }
+        else if (reportChoice == 3)
+        {
             waitingQueue.displayWaitingListStatistics();
-         }
+        }
         else
         {
             std::cout << "Invalid report choice." << std::endl;
@@ -202,7 +243,7 @@ int main()
         }
         else if (choice == 11)
         {
-        std::cout << "Exiting program..." << std::endl;
+            std::cout << "Exiting program..." << std::endl;
         }
 
         else
